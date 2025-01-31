@@ -1,0 +1,52 @@
+@startuml usecase
+left to right direction
+actor "User" as User
+actor "Admin" as Admin
+
+rectangle "Sistem Program Kesehatan & Kebugaran" {
+
+  ' Use Case Utama User
+  User --> (Mendaftar Akun)
+  User --> (Mengisi Profil Kesehatan) 
+
+  (Mengisi Profil Kesehatan) ..> (Memasukkan Data Pribadi) : <<include>>
+  (Mengisi Profil Kesehatan) ..> (Memasukkan Kebiasaan Harian) : <<include>>
+
+  User --> (Mengikuti Program Kebugaran)
+  User --> (Melihat Statistik Kesehatan)
+
+  (Melihat Statistik Kesehatan) ..> (Melihat Jumlah Langkah) : <<include>>
+  (Melihat Statistik Kesehatan) ..> (Melihat Pola Tidur) : <<include>>
+  (Melihat Statistik Kesehatan) ..> (Melihat Tingkat Stres) : <<include>>
+
+  User --> (Mengikuti Tantangan Kebugaran)
+  (Mengikuti Tantangan Kebugaran) ..> (Mendapatkan Peringkat) : <<include>>
+  (Mengikuti Tantangan Kebugaran) ..> (Naik Level) : <<extend>>
+
+  User --> (Mengakses Konsultasi Kesehatan dan Mental)
+  (Mengakses Konsultasi Kesehatan dan Mental) ..> (Konsultasi dengan Ahli Gizi) : <<extend>>
+  (Mengakses Konsultasi Kesehatan dan Mental) ..> (Konsultasi dengan Psikolog) : <<extend>>
+
+  User --> (Melihat Catatan Perkembangan Bulanan)
+
+  ' Use Case Utama Admin
+  Admin --> (Mengelola Data Peserta)
+  Admin --> (Mengelola Program Kebugaran)
+  Admin --> (Melihat Statistik Peserta)
+
+  (Melihat Statistik Peserta) ..> (Melihat Data Peserta Berdasarkan Profesi) : <<include>>
+  (Melihat Statistik Peserta) ..> (Melihat Data Berdasarkan Tujuan Kebugaran) : <<include>>
+
+  Admin --> (Menetapkan Tantangan Kebugaran)
+  Admin --> (Mengelola Penilaian Peserta)
+  Admin --> (Menetapkan Klasifikasi Peserta)
+
+  (Menetapkan Klasifikasi Peserta) ..> (Healthy Starter) : <<extend>>
+  (Menetapkan Klasifikasi Peserta) ..> (Balanced Performer) : <<extend>>
+  (Menetapkan Klasifikasi Peserta) ..> (High Achiever) : <<extend>>
+
+  Admin --> (Mengelola Jadwal Program)
+  Admin --> (Meninjau Konsultasi Kesehatan dan Mental)
+}
+
+@enduml

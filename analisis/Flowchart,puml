@@ -1,0 +1,23 @@
+@startuml flowchart
+start
+
+:User Masuk Akun;
+
+if (login?) then (Berhasil)
+    :User Memilih Program Kebugaran;
+    :User Mengikuti Latihan Sesuai Program;
+    :User Melihat Statistik Kesehatan;
+    :User Mendapatkan Rekomendasi Aktivitas;
+    :User Mengikuti Tantangan Kebugaran;
+    
+    if (Ingin Konsultasi?) then (Ya)
+        :User Mengakses Konsultasi Kesehatan;
+    endif
+
+    :User Melihat Catatan Perkembangan;
+else (Tidak)
+    :Login Gagal;
+endif
+
+stop
+@enduml
